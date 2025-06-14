@@ -1,10 +1,13 @@
-import { Button } from "@/components/ui/button";
 
+import Nav from "./components/Nav";
+import Hero from "./components/Hero";
+import Footer from "./components/Footer";
 export default function Home() {
   return (
     <div>
-      <div className="text-center text-lg text-red-500">Hello Tailwind!</div>
-      <Button>Click me</Button>
+     <Nav/>
+     <Hero/>
+     <Footer/>
     </div>
   );
 }

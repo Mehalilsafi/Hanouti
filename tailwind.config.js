@@ -5,9 +5,22 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
     "./src/**/*.{js,ts,jsx,tsx}" 
   ],
-  theme: {
-    extend: {},
+   theme: {
+  extend: {
+    colors: {
+      primary: 'var(--brand-primary)',
+      accent: 'var(--brand-accent)',
+      bg: {
+        main: 'var(--bg-main)',
+        secondary: 'var(--bg-secondary)',
+      },
+      text: {
+        base:'var(--text-base)',
+        highlight: 'var(--text-highlight)',
+      },
+    },
   },
+},
   plugins: [],
 };
 
