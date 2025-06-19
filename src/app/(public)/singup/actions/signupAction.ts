@@ -31,6 +31,7 @@ import { createClient } from '../../../../../utils/supabase/server'
   })
 
   if (error) {
+    console.log(error)
     redirect('/error')
   }
 
