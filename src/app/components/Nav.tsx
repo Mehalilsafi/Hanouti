@@ -1,12 +1,19 @@
-'use client';
-import Link from 'next/link'
+"use client";
+import Link from "next/link";
 
-import { useEffect } from 'react';
-
-
+import { useEffect } from "react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {logout} from "../actions/logout"
 export default function Header() {
   useEffect(() => {
-    if (typeof window !== 'undefined' && window.HSStaticMethods) {
+    if (typeof window !== "undefined" && window.HSStaticMethods) {
       window.HSStaticMethods.autoInit();
     }
   }, []);
@@ -64,14 +71,25 @@ export default function Header() {
             </svg>
             <span className="sr-only">Toggle</span>
           </button>
-          <Link href='/login'>
-          <button
-            type="button"
-            className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
+          <Link href="/login">
+            <button
+              type="button"
+              className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
             >
-            login
-          </button>
-        </Link>
+              login
+            </button>
+          </Link>
+          <DropdownMenu>
+            <DropdownMenuTrigger>prfile</DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuLabel>userName</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Billing</DropdownMenuItem>
+              <DropdownMenuItem>Subscription</DropdownMenuItem>
+            <button onClick={logout}><DropdownMenuItem>Logout</DropdownMenuItem></button>
+              
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
 
         <div
@@ -85,22 +103,20 @@ export default function Header() {
               href="/"
               aria-current="page"
             >
-             Home
+              Home
             </Link>
-            <Link 
-            href="/pricing"
-            className="font-medium text-gray-600 hover:text-gray-400 focus:outline-hidden focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500" 
-            
+            <Link
+              href="/pricing"
+              className="font-medium text-gray-600 hover:text-gray-400 focus:outline-hidden focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
             >
               pricing
             </Link>
             <Link
-            href="/about"
-             className="font-medium text-gray-600 hover:text-gray-400 focus:outline-hidden focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500" 
+              href="/about"
+              className="font-medium text-gray-600 hover:text-gray-400 focus:outline-hidden focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
             >
               about us
             </Link>
-            
           </div>
         </div>
       </nav>
