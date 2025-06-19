@@ -128,9 +128,9 @@ function Monthlyoffers() {
               </div>
             </CardHeader>
             <CardContent className="flex justify-center items-center gap-1">
-              <p className="text-2xl font-bold text-text-highlight">DZD</p>
+              <p className="text-xl font-bold text-text-highlight">DZD</p>
               <p className="text-2xl font-bold">{offer.offerPrice}</p>
-              <p className="text-sm font-light text-text-highlight">per month billed yearly</p>
+              <p className="text-sm font-light text-text-highlight">per month</p>
             </CardContent>
             <CardFooter className="flex flex-col gap-5">
               <Button variant="outline">Start free trial</Button>
